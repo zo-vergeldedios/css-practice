@@ -1,0 +1,35 @@
+#header {
+  border-style: solid;
+  border-radius: 3px;
+  padding: 50px 20px;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+#header:hover {
+  border-color: blue;
+  background-color: aqua;
+}
+
+#header h1 {
+  color: blue;
+  font-size: 50px;
+}
+
+#header span:hover {
+  background-color: yellow;
+}
+
+section > p {
+  font-size: 30px;
+}
+p:nth-child(2)::before {
+  content: "`";
+  color: red;
+}
+
+p:nth-child(2)::after {
+  content: "`";
+  color: violet;
+}

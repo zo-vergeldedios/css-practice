@@ -4,59 +4,122 @@
   font-family: "Poppins", sans-serif;
   background-color: black;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
-
+/* NAVBAR */
 #navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   position: fixed;
-  height: 50px;
   width: 100%;
-  background-color: aqua;
-  color: darkblue;
+  background-color: #1f2833;
+  color: #66fcf1;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   text-align: center;
-  padding-top: 25px;
+  padding-top: 20px;
   font-weight: 800;
+  z-index: 100;
+}
+#navlinks {
+  background-color: rgba(0, 0, 0, 0);
+  padding-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#navlinks a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+#navlinks a:hover {
+  color: #66fcf1;
+  text-decoration: none;
+  transform: translateY(-10px);
 }
 
 #navbar h2 {
-  background-color: aqua;
+  background-color: rgba(0, 0, 0, 0);
   font-size: 2rem;
   padding-bottom: 20px;
 }
 
+/* End of Navbar */
+
 #header {
+  position: relative;
   padding-top: 100px;
-  height: 120vh;
-  border-style: solid;
-  border-radius: 3px;
-  width: 60%;
+  min-height: 100vh;
+  width: 100%;
   margin: auto;
   text-align: center;
-  background-color: black;
-  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1;
 }
+
+#header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("Dojo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(8px) grayscale(100%);
+  z-index: -1;
+}
+
+/* Disable background-attachment: fixed on mobile */
+@media (max-width: 768px) {
+  #header::before {
+    background-attachment: scroll;
+  }
+}
+
+/* Optional: Improve mobile compatibility by avoiding background-attachment: fixed */
+@media (max-width: 768px) {
+  #header::before {
+    background-attachment: scroll;
+  }
+}
+
 #header audio {
   margin: 10px 0;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 #header h1 {
+  margin-top: 20%;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   background-color: rgba(255, 255, 255, 0);
 }
 #header span {
-  color: darkblue;
+  color: white;
+  padding: 10px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   background-color: rgba(255, 255, 255, 0);
 }
 #header p {
-  color: darkblue;
+  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   background-color: rgba(255, 255, 255, 0);
+  margin-top: 10px;
+  font-size: 15px;
 }
 
-#header:hover {
+/* #header:hover {
   border-color: blue;
   background-color: aqua;
-}
+} */
 
 #header h1 {
-  color: blue;
+  color: white;
   font-size: 50px;
 }
 
@@ -65,7 +128,8 @@
 }
 
 #header span:hover {
-  background-color: yellow;
+  background-color: rgba(0, 255, 255, 0.774);
+  color: white;
   border-radius: 10px;
 }
 
@@ -82,22 +146,86 @@ p:nth-child(2)::after {
   color: aqua;
 }
 
+/* TOOLS */
+#tools {
+  padding: 40px 20px;
+  background-color: #1f2833;
+  text-align: center;
+  color: white;
+  height: auto; /* Adjust to content */
+}
+
+#tools h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+  color: #66fcf1;
+}
+
+.tools-container {
+  height: 70vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden;
+}
+
+.tools-card img {
+  width: 200px;
+}
+
+.tools-card {
+  padding: 50px 70px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tools-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 5px 5px 10px #66fcf1;
+}
+
+.tools-card h3 {
+  color: #66fcf1;
+  text-align: center;
+}
+
+/* END OF TOOLS */
+
 .card {
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
   width: 250px;
   padding: 20px;
-  border: 5px solid gray;
+  border: 2px solid white;
   border-radius: 10px;
   text-align: center;
   box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.3);
   box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card h2,
-p {
+.card h2 {
   color: aqua;
+  background-color: rgba(255, 255, 255, 0);
+}
+.card:hover h2 {
+  color: rgb(0, 0, 59);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.card p {
+  color: aqua;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.card:hover p {
+  color: rgb(0, 0, 59);
   background-color: rgba(255, 255, 255, 0);
 }
 
@@ -105,4 +233,9 @@ p {
   margin-top: 5px;
   width: 50px;
   border-radius: 50%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background-color: aqua;
 }
